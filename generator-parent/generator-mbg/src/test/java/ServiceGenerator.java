@@ -93,6 +93,16 @@ public class ServiceGenerator {
                     generateEntityExample(cfg, entityMap,
                             targetProject + "/" + modelPath + "/" + domain + "Example.java");// 生成entityExample
 
+                    // 开始生成javaMapper
+                    Map<String, Object> javaMapperMap = new HashMap<String, Object>();
+                    javaMapperMap.put("package", mapperPath);
+                    javaMapperMap.put("domainName", domain);
+                    javaMapperMap.put("primaryKeyType", primaryKeyType);
+                    javaMapperMap.put("baseModelPackage", modelTarget);
+                    javaMapperMap.put("genericMapperPackage", Constants.GENERIC_MAPPER_PACKAGE);
+                    generateJavaMap(cfg, javaMapperMap,
+                            targetProject + "/" + mapperPath.replace(".", "/") + "/" + domain + "Mapper.java");// 生成entity
+
                     // 开始生成service,serviceImpl
                     Map<String, Object> serviceMap = new HashMap<String, Object>();
                     serviceMap.put("domainName", domain);
@@ -167,6 +177,11 @@ public class ServiceGenerator {
     public static void generateEntityExample(freemarker.template.Configuration cfg, Map<String, Object> map,
             String filePath) throws IOException {
         generate("modelExample.ftl", cfg, map, filePath);
+    }
+
+    public static void generateJavaMap(freemarker.template.Configuration cfg, Map<String, Object> map, String filePath)
+            throws IOException {
+        generate("mapper.ftl", cfg, map, filePath);
     }
 
     public static void generateService(freemarker.template.Configuration cfg, Map<String, Object> map, String filePath)

@@ -16,6 +16,6 @@ public final class Constants {
     // GenericService类路径
     public static final String GENERIC_SERVICE_PACKAGE = "com.autostreets.framework.common.dal.GenericService";
 
-    // GenericService类路径
+    // GenericServiceImpl类路径
     public static final String GENERIC_SERVICEIMPL_PACKAGE = "com.autostreets.framework.common.dal.GenericServiceImpl";
 }
