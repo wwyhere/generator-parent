@@ -29,7 +29,7 @@
 			connectionURL="jdbc:mysql://192.168.100.105:3306/qx" userId="root" password="root">
 		</jdbcConnection> -->
 		<jdbcConnection driverClass="org.gjt.mm.mysql.Driver" 
-			connectionURL="jdbc:mysql://10.100.210.102:3306/autost_auction?characterEncoding=utf-8" 
+			connectionURL="jdbc:mysql://10.100.210.102:3306/autost_auction?characterEncoding=utf-8&amp;useSSL=false" 
 			userId="autostreets" password="autostreets">
 		</jdbcConnection>
 		<javaTypeResolver>
@@ -52,7 +52,7 @@
 			<property name="enableSubPackages" value="true" />
 			<property name="rootInterface" value="com.autostreets.framework.common.dal.GenericMapper"/>
 		</javaClientGenerator>
-		<table tableName="order" domainObjectName="Order">
+		<table tableName="order" domainObjectName="Order" delimitIdentifiers="true">
 			<property name="useActualColumnNames" value="false" />
 			<property name="domainPackage" value="base" />
 			<!-- 设置实体类父类 -->

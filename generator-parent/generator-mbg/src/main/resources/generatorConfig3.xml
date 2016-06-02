@@ -28,7 +28,7 @@
 			connectionURL="jdbc:mysql://192.168.100.105:3306/qx" userId="root" password="root">
 		</jdbcConnection> -->
 		<jdbcConnection driverClass="org.gjt.mm.mysql.Driver" 
-			connectionURL="jdbc:mysql://10.100.210.102:3306/autostreets?characterEncoding=utf-8" 
+			connectionURL="jdbc:mysql://10.100.210.102:3306/autostreets?characterEncoding=utf-8&amp;useSSL=false" 
 			userId="autostreets" password="autostreets">
 		</jdbcConnection>
 		<javaTypeResolver>
@@ -60,7 +60,7 @@
 <!--               <columnOverride column="is_exclusive" javaType="java.lang.Boolean"></columnOverride> -->
 <!--               <columnOverride column="del_flag" javaType="java.lang.Boolean"></columnOverride> -->
 <!-- 		</table> -->
-		<table tableName="vehicle_deal_data" domainObjectName="VehicleDealData">
+		<table tableName="vehicle_deal_data" domainObjectName="VehicleDealData" delimitIdentifiers="true">
 			<property name="useActualColumnNames" value="false" />
 			<property name="domainPackage" value="base" />
 			<!-- 设置实体类父类 -->
