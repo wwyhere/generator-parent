@@ -21,7 +21,7 @@ import org.mybatis.generator.internal.DefaultShellCallback;
  */
 public class Generator {
 
-    public static String generatorConfig = "generatorConfig2.xml";
+    public static String generatorConfig = "generatorConfig.xml";
 
     public static void main(String[] args) {
         // 清理src/main/java下的文件
@@ -31,7 +31,7 @@ public class Generator {
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        List<String> warnings = new ArrayList<String>();
+        List<String> warnings = new ArrayList<>();
         boolean overwrite = true;
         File configFile = new File(Generator.class.getClassLoader().getResource(Generator.generatorConfig).getPath());
         try {

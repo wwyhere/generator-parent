@@ -35,7 +35,7 @@ public class ServiceGenerator {
 
     @SuppressWarnings("unchecked")
     public static void main(String[] args) {
-        List<String> warnings = new ArrayList<String>();
+        List<String> warnings = new ArrayList<>();
         File configFile = new File(Generator.class.getClassLoader().getResource(Generator.generatorConfig).getPath());
         ConfigurationParser cp = new ConfigurationParser(warnings);
         Configuration config;
@@ -82,9 +82,13 @@ public class ServiceGenerator {
                                     .getShortName();// 主键类型
                         }
                     }
+                    if (primaryKeyType == null) {
+                        System.out.println(domain + "表在数据库中不存在或没有主键!停止" + domain + "表生成");
+                        break;
+                    }
 
                     // 开始生成entity和example
-                    Map<String, Object> entityMap = new HashMap<String, Object>();
+                    Map<String, Object> entityMap = new HashMap<>();
                     entityMap.put("package", modelTarget);
                     entityMap.put("domainName", domain);
                     entityMap.put("baseDomain", modelTarget + "." + domainPackage + ".Base" + domain);
@@ -94,7 +98,7 @@ public class ServiceGenerator {
                             targetProject + "/" + modelPath + "/" + domain + "Example.java");// 生成entityExample
 
                     // 开始生成javaMapper
-                    Map<String, Object> javaMapperMap = new HashMap<String, Object>();
+                    Map<String, Object> javaMapperMap = new HashMap<>();
                     javaMapperMap.put("package", mapperPath);
                     javaMapperMap.put("domainName", domain);
                     javaMapperMap.put("primaryKeyType", primaryKeyType);
@@ -104,7 +108,7 @@ public class ServiceGenerator {
                             targetProject + "/" + mapperPath.replace(".", "/") + "/" + domain + "Mapper.java");// 生成entity
 
                     // 开始生成service,serviceImpl
-                    Map<String, Object> serviceMap = new HashMap<String, Object>();
+                    Map<String, Object> serviceMap = new HashMap<>();
                     serviceMap.put("domainName", domain);
                     serviceMap.put("package", servicePath);
                     serviceMap.put("primaryKeyType", primaryKeyType);

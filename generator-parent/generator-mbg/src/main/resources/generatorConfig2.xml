@@ -12,6 +12,7 @@
 		<property name="autoDelimitKeywords" value="true"/>
 		<property name="beginningDelimiter" value="`"/>
 		<property name="endingDelimiter" value="`"/>
+		
 		<!-- 分页插件 -->
 		<plugin type="generator.plugins.MySQLPaginationPlugin"></plugin>
 		<!-- 返回自增长主键插件 -->
@@ -28,7 +29,7 @@
 			connectionURL="jdbc:mysql://192.168.100.105:3306/qx" userId="root" password="root">
 		</jdbcConnection> -->
 		<jdbcConnection driverClass="org.gjt.mm.mysql.Driver" 
-			connectionURL="jdbc:mysql://10.100.210.101:3306/autost_auction?characterEncoding=utf-8" 
+			connectionURL="jdbc:mysql://10.100.210.102:3306/autost_auction?characterEncoding=utf-8" 
 			userId="autostreets" password="autostreets">
 		</jdbcConnection>
 		<javaTypeResolver>
@@ -51,7 +52,7 @@
 			<property name="enableSubPackages" value="true" />
 			<property name="rootInterface" value="com.autostreets.framework.common.dal.GenericMapper"/>
 		</javaClientGenerator>
-		<table tableName="homepage_recommend" domainObjectName="HomepageRecommend">
+		<table tableName="order" domainObjectName="Order">
 			<property name="useActualColumnNames" value="false" />
 			<property name="domainPackage" value="base" />
 			<!-- 设置实体类父类 -->
@@ -60,7 +61,8 @@
 			<!-- <property name="rootInterface" value="com.wwy.BaseInterface" /> -->
 			<!-- <generatedKey column="id" sqlStatement="MySql" identity="true" /> -->
 			<columnRenamingRule searchString="is_" replaceString=""/>
-			<columnOverride column="aliveflag" javaType="java.lang.Integer" />
+			<ignoreColumn column="sid"/>
+            <columnOverride column="cust_intention" javaType="java.lang.Integer"></columnOverride>
 		</table>
 	</context>
 </generatorConfiguration>

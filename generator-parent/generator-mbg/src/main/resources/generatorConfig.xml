@@ -28,8 +28,11 @@
 			connectionURL="jdbc:mysql://192.168.100.105:3306/qx" userId="root" password="root">
 		</jdbcConnection> -->
 		<jdbcConnection driverClass="org.gjt.mm.mysql.Driver"
-			connectionURL="jdbc:mysql://192.168.6.129:3306/qx" userId="root" password="root">
+			connectionURL="jdbc:mysql://10.100.216.48:3306/wwy?useSSL=false" userId="root" password="123456">
 		</jdbcConnection>
+		<!-- <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+			connectionURL="jdbc:mysql://10.100.216.48:3306/wwy?useSSL=false" userId="root" password="123456">
+		</jdbcConnection> -->
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
@@ -49,18 +52,7 @@
 			targetPackage="wwy.mapper" targetProject="src/main/java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
-		<table tableName="user" domainObjectName="User">
-			<property name="useActualColumnNames" value="false" />
-			<property name="domainPackage" value="base" />
-			<!-- 设置实体类父类 -->
-			<!-- <property name="rootClass" value="com.wwy.BaseEntity" /> -->
-			<!-- 设置mapper.java默认实现接口 -->
-			<!-- <property name="rootInterface" value="com.wwy.BaseInterface" /> -->
-			<!-- <generatedKey column="id" sqlStatement="MySql" identity="true" /> -->
-			<columnRenamingRule searchString="_" replaceString="" />
-			<columnOverride column="aliveflag" javaType="java.lang.Integer" />
-		</table>
-		<table tableName="role" domainObjectName="Role">
+		<table tableName="ORDER" domainObjectName="Order" delimitIdentifiers="true">
 			<property name="useActualColumnNames" value="false" />
 			<property name="domainPackage" value="base" />
 			<!-- 设置实体类父类 -->
